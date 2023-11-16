@@ -6,8 +6,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PublicTransportAPI.Models.DTOS
 {
-    public class LinhaDTO
+    public class LinhaParadaDTO
     {
-        public string LinhaNome { get; set; }
+        public long FkLinhaId { get; set; }
+        public long FkParadaId { get; set; }
+        public TbLinha FkLinha { get; set; }
     }
 }

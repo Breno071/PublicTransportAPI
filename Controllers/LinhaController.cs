@@ -22,48 +22,45 @@ namespace PublicTransportAPI.Controllers
         }
 
         // GET: api/Linha
-        [HttpGet("{skip:int}/{take:int}")]
-        public async Task<ActionResult<IEnumerable<Linha>>> GetLinha(int skip, int take)
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<TbLinha>>> GetTbLinhas()
         {
-          if (_context.Linha == null)
+          if (_context.TbLinhas == null)
           {
               return NotFound();
           }
-            return await _context.Linha
-                .Skip(skip)
-                .Take(take)
-                .ToListAsync();
+            return await _context.TbLinhas.ToListAsync();
         }
 
         // GET: api/Linha/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Linha>> GetLinha(long id)
+        public async Task<ActionResult<TbLinha>> GetTbLinha(long id)
         {
-          if (_context.Linha == null)
+          if (_context.TbLinhas == null)
           {
               return NotFound();
           }
-            var linha = await _context.Linha.FindAsync(id);
+            var tbLinha = await _context.TbLinhas.FindAsync(id);
 
-            if (linha == null)
+            if (tbLinha == null)
             {
                 return NotFound();
             }
 
-            return linha;
+            return tbLinha;
         }
 
         // PUT: api/Linha/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutLinha(long id, Linha linha)
+        public async Task<IActionResult> PutTbLinha(long id, TbLinha tbLinha)
         {
-            if (id != linha.Id)
+            if (id != tbLinha.LinhaId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(linha).State = EntityState.Modified;
+            _context.Entry(tbLinha).State = EntityState.Modified;
 
             try
             {
@@ -71,7 +68,7 @@ namespace PublicTransportAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!LinhaExists(id))
+                if (!TbLinhaExists(id))
                 {
                     return NotFound();
                 }
@@ -87,41 +84,41 @@ namespace PublicTransportAPI.Controllers
         // POST: api/Linha
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Linha>> PostLinha(Linha linha)
+        public async Task<ActionResult<TbLinha>> PostTbLinha(TbLinha tbLinha)
         {
-          if (_context.Linha == null)
+          if (_context.TbLinhas == null)
           {
-              return Problem("Entity set 'PublicTransportAPIContext.Linha'  is null.");
+              return Problem("Entity set 'PublicTransportAPIContext.TbLinhas'  is null.");
           }
-            _context.Linha.Add(linha);
+            _context.TbLinhas.Add(tbLinha);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetLinha", new { id = linha.Id }, linha);
+            return CreatedAtAction("GetTbLinha", new { id = tbLinha.LinhaId }, tbLinha);
         }
 
         // DELETE: api/Linha/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteLinha(long id)
+        public async Task<IActionResult> DeleteTbLinha(long id)
         {
-            if (_context.Linha == null)
+            if (_context.TbLinhas == null)
             {
                 return NotFound();
             }
-            var linha = await _context.Linha.FindAsync(id);
-            if (linha == null)
+            var tbLinha = await _context.TbLinhas.FindAsync(id);
+            if (tbLinha == null)
             {
                 return NotFound();
             }
 
-            _context.Linha.Remove(linha);
+            _context.TbLinhas.Remove(tbLinha);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool LinhaExists(long id)
+        private bool TbLinhaExists(long id)
         {
-            return (_context.Linha?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.TbLinhas?.Any(e => e.LinhaId == id)).GetValueOrDefault();
         }
     }
 }

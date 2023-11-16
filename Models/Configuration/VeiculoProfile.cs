@@ -3,11 +3,11 @@ using PublicTransportAPI.Models.DTOS;
 
 namespace PublicTransportAPI.Models.Configuration
 {
-    public class LinhaProfile : Profile
+    public class VeiculoProfile : Profile
     {
-        public LinhaProfile()
+        public VeiculoProfile()
         {
-            CreateMap<TbLinha, LinhaDTO>().ReverseMap();
+            CreateMap<TbVeiculo, VeiculoDTO>().ReverseMap();
         }
     }
 }
