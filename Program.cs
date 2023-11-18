@@ -1,12 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using PublicTransportAPI.Data;
+using Repository.Data;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<PublicTransportAPIContext>(options =>
     //options.UseInMemoryDatabase("db"));
     options.UseSqlServer(builder.Configuration.GetConnectionString("PublicTransportAPIContext") ?? throw new InvalidOperationException("Connection string 'PublicTransportAPIContext' not found.")));
+
+
 
 // Add services to the container.
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
