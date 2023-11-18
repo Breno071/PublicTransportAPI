@@ -5,11 +5,11 @@ using System.Collections.Generic;
 
 namespace PublicTransportAPI.Models
 {
-    public partial class TbParadum
+    public partial class Parada
     {
-        public TbParadum()
+        public Parada()
         {
-            TbLinhaParada = new HashSet<TbLinhaParadum>();
+            TbLinhaParada = new HashSet<LinhaParada>();
         }
 
         public long ParadaId { get; set; }
@@ -17,6 +17,6 @@ namespace PublicTransportAPI.Models
         public double ParadaLatitude { get; set; }
         public double ParadaLongitude { get; set; }
 
-        public virtual ICollection<TbLinhaParadum> TbLinhaParada { get; set; }
+        public virtual ICollection<LinhaParada> TbLinhaParada { get; set; }
     }
 }

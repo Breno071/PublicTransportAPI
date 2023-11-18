@@ -5,13 +5,13 @@ using System.Collections.Generic;
 
 namespace PublicTransportAPI.Models
 {
-    public partial class TbPosicaoVeiculo
+    public partial class PosicaoVeiculo
     {
         public long PoveId { get; set; }
         public double PoveLatitude { get; set; }
         public double PoveLongitude { get; set; }
         public long FkVeicId { get; set; }
 
-        public virtual TbVeiculo FkVeic { get; set; }
+        public virtual Veiculo FkVeic { get; set; }
     }
 }

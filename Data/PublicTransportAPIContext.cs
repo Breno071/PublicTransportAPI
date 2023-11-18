@@ -19,15 +19,15 @@ namespace PublicTransportAPI.Data
         {
         }
 
-        public virtual DbSet<TbLinha> TbLinhas { get; set; }
-        public virtual DbSet<TbLinhaParadum> TbLinhaParada { get; set; }
-        public virtual DbSet<TbParadum> TbParada { get; set; }
-        public virtual DbSet<TbPosicaoVeiculo> TbPosicaoVeiculos { get; set; }
-        public virtual DbSet<TbVeiculo> TbVeiculos { get; set; }
+        public virtual DbSet<Linha> TbLinhas { get; set; }
+        public virtual DbSet<LinhaParada> TbLinhaParada { get; set; }
+        public virtual DbSet<Parada> TbParada { get; set; }
+        public virtual DbSet<PosicaoVeiculo> TbPosicaoVeiculos { get; set; }
+        public virtual DbSet<Veiculo> TbVeiculos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<TbLinha>(entity =>
+            modelBuilder.Entity<Linha>(entity =>
             {
                 entity.HasKey(e => e.LinhaId);
 
@@ -42,7 +42,7 @@ namespace PublicTransportAPI.Data
                     .HasColumnName("LINHA_NOME");
             });
 
-            modelBuilder.Entity<TbLinhaParadum>(entity =>
+            modelBuilder.Entity<LinhaParada>(entity =>
             {
                 entity.HasKey(e => e.LinhaParadaId);
 
@@ -67,7 +67,7 @@ namespace PublicTransportAPI.Data
                     .HasConstraintName("FK_TB_LINHA_PARADA_TB_PARADA");
             });
 
-            modelBuilder.Entity<TbParadum>(entity =>
+            modelBuilder.Entity<Parada>(entity =>
             {
                 entity.HasKey(e => e.ParadaId);
 
@@ -88,7 +88,7 @@ namespace PublicTransportAPI.Data
                     .HasColumnName("PARADA_NOME");
             });
 
-            modelBuilder.Entity<TbPosicaoVeiculo>(entity =>
+            modelBuilder.Entity<PosicaoVeiculo>(entity =>
             {
                 entity.HasKey(e => e.PoveId);
 
@@ -111,7 +111,7 @@ namespace PublicTransportAPI.Data
                     .HasConstraintName("FK_TB_POSICAO_VEICULO_TB_VEICULO");
             });
 
-            modelBuilder.Entity<TbVeiculo>(entity =>
+            modelBuilder.Entity<Veiculo>(entity =>
             {
                 entity.HasKey(e => e.VeicId);
 

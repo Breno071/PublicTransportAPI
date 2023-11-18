@@ -10,6 +10,6 @@ namespace PublicTransportAPI.Models.DTOS
     {
         public long FkLinhaId { get; set; }
         public long FkParadaId { get; set; }
-        public TbLinha FkLinha { get; set; }
+        public Linha FkLinha { get; set; }
     }
 }

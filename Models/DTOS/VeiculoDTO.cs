@@ -11,6 +11,6 @@ namespace PublicTransportAPI.Models.DTOS
         public string VeicNome { get; set; }
         public string VeicModelo { get; set; }
         public long FkLinhaId { get; set; }
-        public TbLinha FkLinha { get; set; }
+        public Linha FkLinha { get; set; }
     }
 }

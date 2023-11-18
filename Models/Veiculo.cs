@@ -5,11 +5,11 @@ using System.Collections.Generic;
 
 namespace PublicTransportAPI.Models
 {
-    public partial class TbVeiculo
+    public partial class Veiculo
     {
-        public TbVeiculo()
+        public Veiculo()
         {
-            TbPosicaoVeiculos = new HashSet<TbPosicaoVeiculo>();
+            TbPosicaoVeiculos = new HashSet<PosicaoVeiculo>();
         }
 
         public long VeicId { get; set; }
@@ -17,7 +17,7 @@ namespace PublicTransportAPI.Models
         public string VeicModelo { get; set; }
         public long FkLinhaId { get; set; }
 
-        public virtual TbLinha FkLinha { get; set; }
-        public virtual ICollection<TbPosicaoVeiculo> TbPosicaoVeiculos { get; set; }
+        public virtual Linha FkLinha { get; set; }
+        public virtual ICollection<PosicaoVeiculo> TbPosicaoVeiculos { get; set; }
     }
 }

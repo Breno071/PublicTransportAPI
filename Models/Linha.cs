@@ -5,18 +5,18 @@ using System.Collections.Generic;
 
 namespace PublicTransportAPI.Models
 {
-    public partial class TbLinha
+    public partial class Linha
     {
-        public TbLinha()
+        public Linha()
         {
-            TbLinhaParada = new HashSet<TbLinhaParadum>();
-            TbVeiculos = new HashSet<TbVeiculo>();
+            TbLinhaParada = new HashSet<LinhaParada>();
+            TbVeiculos = new HashSet<Veiculo>();
         }
 
         public long LinhaId { get; set; }
         public string LinhaNome { get; set; }
 
-        public virtual ICollection<TbLinhaParadum> TbLinhaParada { get; set; }
-        public virtual ICollection<TbVeiculo> TbVeiculos { get; set; }
+        public virtual ICollection<LinhaParada> TbLinhaParada { get; set; }
+        public virtual ICollection<Veiculo> TbVeiculos { get; set; }
     }
 }

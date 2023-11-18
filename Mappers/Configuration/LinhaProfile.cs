@@ -1,13 +1,14 @@
 ﻿using AutoMapper;
+using PublicTransportAPI.Models;
 using PublicTransportAPI.Models.DTOS;
 
-namespace PublicTransportAPI.Models.Configuration
+namespace PublicTransportAPI.Mappers.Configuration
 {
     public class LinhaProfile : Profile
     {
         public LinhaProfile()
         {
-            CreateMap<TbLinha, LinhaDTO>().ReverseMap();
+            CreateMap<Linha, LinhaDTO>().ReverseMap();
         }
     }
 }

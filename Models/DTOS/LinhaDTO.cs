@@ -8,6 +8,6 @@ namespace PublicTransportAPI.Models.DTOS
 {
     public class LinhaDTO
     {
-        public string LinhaNome { get; set; }
+        public string LinhaNome { get; set; } = string.Empty;
     }
 }
